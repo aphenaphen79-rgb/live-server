@@ -1,8 +1,4 @@
-module.exports = (req, res) => {
-  res.setHeader('Content-Type', 'text/html');
-  res.status(200).send(`
-    <h1 style="font-family:sans-serif;text-align:center;margin-top:50px">🚀 Server Kamu Online!</h1>
-    <p style="text-align:center">Error Upgrade Required sudah hilang.</p>
-    <p style="text-align:center">Deploy berhasil di Vercel!</p>
-  `);
-};
+module.exports = function(req, res) {
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.end('<h1 style="text-align:center;margin-top:100px;font-family:sans-serif">🚀 Server Online! Berhasil!</h1><p style="text-align:center">Upgrade Required sudah hilang.</p>');
+}
