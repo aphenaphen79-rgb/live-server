@@ -1,18 +1,8 @@
-import { WebSocketServer } from "ws";
-
-const port = process.env.PORT || 3000;
-const wss = new WebSocketServer({ port });
-
-console.log(`Server jalan di port ${port}`);
-
-wss.on("connection", (ws) => {
-  console.log("Client konek");
-  ws.on("message", (data) => {
-    // Kirim pesan ke semua client yang konek
-    wss.clients.forEach((client) => {
-      if (client.readyState === 1) {
-        client.send(data.toString());
-      }
-    });
-  });
-});
+module.exports = (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.status(200).send(`
+    <h1 style="font-family:sans-serif;text-align:center;margin-top:50px">🚀 Server Kamu Online!</h1>
+    <p style="text-align:center">Error Upgrade Required sudah hilang.</p>
+    <p style="text-align:center">Deploy berhasil di Vercel!</p>
+  `);
+};
